@@ -27,10 +27,11 @@
     </div>
 
     <script>
-      // Menutup halaman setelah 5 detik
-      setTimeout(function () {
-        window.close();
-      }, 3000); // 3000 milidetik = 3 detik
+      // Mencegah pengguna kembali ke halaman sebelumnya (index.html)
+      history.pushState(null, null, location.href);
+      window.onpopstate = function () {
+        history.go(1);
+      };
     </script>
   </body>
 </html>
