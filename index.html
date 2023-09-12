@@ -118,5 +118,16 @@
           });
       });
     </script>
+
+    <script>
+      // Gunakan HTML5 History API untuk mengganti URL tanpa meninggalkan halaman
+      history.replaceState(null, null, location.href);
+
+      // Tangkap peristiwa ketika pengguna menekan tombol kembali
+      window.addEventListener("popstate", function (event) {
+        // Kembali ke halaman sekarang (index.html)
+        history.pushState(null, null, location.href);
+      });
+    </script>
   </body>
 </html>
