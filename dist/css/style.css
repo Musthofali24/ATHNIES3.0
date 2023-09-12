@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+/* ========== VARIABEL CSS ========== */
+:root {
+    /* Colors */
+    --white-color: #fff;
+    --black-color: #0000;
+
+    /* Font and Typography */
+    --body-font: 'Poppins', sans-serif;
+    --h1-font-size: 1.75rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .813rem;
+
+    /* Font Weight */
+    --font-medium: 500;
+}
+
+/* ============= RESET CSS ============= */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body,
+input,
+button {
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+}
+
+body {
+    color: var(--white-color);
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ================ LOGIN ================= */
+.absent {
+    position: relative;
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.absent__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.absent__form {
+    position: relative;
+    background-color: hsla(0, 0%, 10%, .1);
+    border: 2px solid var(--white-color);
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(8px);
+}
+
+.absent__title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: var(--font-medium);
+    margin-bottom: 2rem;
+}
+
+.absent__desc {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+    font-weight: var(--font-medium);
+    margin: -45px;
+    margin-bottom: 2rem;
+}
+
+.absent__title,
+.absent_desc,
+.absent__box {
+    display: grid;
+}
+
+.absent__content{
+    row-gap: 1.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.absent__box{
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    margin-bottom: 1.75rem;
+    column-gap: .75rem;
+    border-bottom: 2px solid var(--white-color);
+}
+
+.absent__icon {
+    font-size: 1.75rem;
+}
+
+.absent__input {
+    width: 100%;
+    padding-block: .8rem;
+    background: none;
+    color: var(--white-color);
+    position: relative;
+    z-index: 1;
+}
+
+.absent__box-input{
+    position: relative;
+}
+
+.absent__label{
+    position: absolute;
+    left: 0;
+    top: 13px;
+    font-weight: var(--font-medium);
+    transition: top .3s, font-size .3s ;
+}
+
+.absent__box:nth-child(2) input{
+    padding-right: 1.8rem;
+}
+
+/* CSS untuk input dropdown */
+.absent__input.dropdown {
+    border-radius: 0.5rem;
+    margin-top: -5px; /* Mengatur sudut border-radius */
+    margin-bottom: .5rem; /* Memberi jarak bawah dengan elemen berikutnya */
+    display: flex;
+    align-items: center;
+}
+
+.absent__input.dropdown i {
+    font-size: 28px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+/* CSS untuk opsi dropdown */
+.absent__input.dropdown select {
+    width: 100%;
+    padding: 0.8rem;
+    background: none;
+    color: var(--white-color);
+    position: relative;
+    z-index: 1;
+    border: 2px solid var(--white-color); /* Mengatur border dropdown */
+}
+
+.absent__input.dropdown select:focus {
+    border-color: var(--white-color); /* Mengatur border saat dropdown difokuskan */
+}
+
+/* CSS untuk tombol */
+.absent__btn {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--white-color);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: .5s;
+}
+
+.absent__btn:hover {
+    background-color: rgb(217, 0, 217);
+    color: var(--white-color);
+}
+
+/* Style untuk daftar opsi dropdown */
+.absent__input.dropdown select option {
+    background-color: hsla(0, 0%, 10%, 0.8); /* Warna latar belakang opsi dropdown */
+    color: var(--white-color);
+    padding: 0.5rem;
+    font-weight: var(--font-medium);
+}
+
+/* CSS untuk label dropdown */
+.absent__input.dropdown label {
+    position: absolute;
+    left: 40px;
+    font-weight: var(--font-medium);
+    font-size: var(--small-font-size);
+    transition: top .3s, font-size .3s ;
+}
+
+
+.absent__input:focus + .absent__label,
+.absent__input:valid + .absent__label{
+    top: -12px;
+    font-size: var(--small-font-size);
+}
+
+@media screen and (max-width: 600px) {
+    .absent__form {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .absent__form {
+        max-width: 80%;
+    }
+}

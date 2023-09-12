@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dist/css/style.css" />
+    <title>Athnies 3.0 Attendance Form</title>
+  </head>
+
+  <body>
+    <div class="absent">
+      <img src="assets/img.jpg" alt="absent image" class="absent__img" />
+
+      <form
+        action="https://sheetdb.io/api/v1/r860xgouqze4d"
+        method="post"
+        class="absent__form"
+        id="sheetdb-form"
+      >
+        <h1 class="absent__title">ATHNIES 3.0</h1>
+        <p class="absent__desc">"Bring to Heaven"</p>
+        <div class="absent__content">
+          <div class="absent__box">
+            <i class="ri-user-3-line absent__icon"></i>
+
+            <div class="absent__box-input">
+              <input
+                name="name"
+                type="text"
+                class="absent__input"
+                placeholder=" "
+                required
+              />
+              <label for="name" class="absent__label">Name</label>
+            </div>
+          </div>
+
+          <div class="absent__box">
+            <i class="ri-pass-valid-line absent__icon"></i>
+
+            <div class="absent__box-input">
+              <input
+                name="nim"
+                type="text"
+                class="absent__input"
+                placeholder=" "
+                required
+              />
+              <label for="nim" class="absent__label">Nim</label>
+            </div>
+          </div>
+
+          <div class="absent_box">
+            <div class="absent__input dropdown">
+              <select class="absent__input dropdown" name="class" required>
+                <option value="" disabled selected>Pilih Kelas</option>
+                <option value="1AEA1">1AEA1</option>
+                <option value="1AEA2">1AEA2</option>
+                <option value="1AEA3">1AEA3</option>
+                <option value="1AEA4">1AEA4</option>
+                <option value="1AEB1">1AEB1</option>
+                <option value="1AEB2">1AEB2</option>
+                <option value="1AEB3">1AEB3</option>
+                <option value="1AEB4">1AEB4</option>
+                <option value="1AEC1">1AEC1</option>
+                <option value="1AEC2">1AEC2</option>
+                <option value="1AEC3">1AEC3</option>
+                <option value="1AEC4">1AEC4</option>
+                <option value="1AED">1AED</option>
+                <option value="2AEA1">2AEA1</option>
+                <option value="2AEA2">2AEA2</option>
+                <option value="2AEB1">2AEB1</option>
+                <option value="2AEB2">2AEB2</option>
+                <option value="2AEC">2AEC</option>
+                <option value="3AEA1">3AEA1</option>
+                <option value="3AEA2">3AEA2</option>
+                <option value="3AEB1">3AEB1</option>
+                <option value="3AEB2">3AEB2</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="absent__btn">submit</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      var form = document.getElementById("sheetdb-form");
+      var submitButton = form.querySelector(".absent__btn");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Menonaktifkan tombol submit
+        submitButton.disabled = true;
+        submitButton.textContent = "Submitting...";
+
+        fetch(form.action, {
+          method: "POST",
+          body: new FormData(document.getElementById("sheetdb-form")),
+        })
+          .then((response) => response.json())
+          .then((html) => {
+            // Anda dapat menambahkan kode lain di sini jika diperlukan
+            window.open("success.html", "_blank");
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          })
+          .finally(() => {
+            // Mengaktifkan kembali tombol submit setelah selesai
+            submitButton.disabled = false;
+            submitButton.textContent = "Submit";
+          });
+      });
+    </script>
+  </body>
+</html>
