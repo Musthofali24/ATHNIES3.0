@@ -105,8 +105,10 @@
         })
           .then((response) => response.json())
           .then((html) => {
-            // Anda dapat menambahkan kode lain di sini jika diperlukan
-            window.open("success.html", "_blank");
+            // Mengarahkan ke halaman success.html
+            window.location.href = "success.html";
+            // Menutup halaman index.html
+            window.close();
           })
           .catch((error) => {
             console.error("Error:", error);
